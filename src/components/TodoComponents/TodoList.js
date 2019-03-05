@@ -3,9 +3,13 @@
 import React from 'react';
 import TodoForm from './TodoForm';
 
-function TodoList () {
+function TodoList (props) {
     return (
-        <TodoForm />
+        <TodoForm 
+            inputChangeHandler={props.inputChangeHandler}
+            task={props.task}
+            completed={props.completed}
+        />
     )
 }
 
