@@ -2,15 +2,15 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 import TodoForm from './TodoForm';
+import Todo from './Todo';
 
 function TodoList (props) {
     return (
-        <TodoForm 
-            inputChangeHandler={props.inputChangeHandler}
-            task={props.task}
-            completed={props.completed}
-        />
-    )
-}
+        <div>
+            {props.tasksArray.map((eachTask) => {return <Todo eachTask={eachTask} />})}
+            <TodoForm inputChangeHandler={props.inputChangeHandler} tasksArray={props.tasksArray} />
+        </div>
+    );
+};
 
 export default TodoList;

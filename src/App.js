@@ -1,19 +1,24 @@
 import React from 'react';
 import TodoList from "./components/TodoComponents/TodoList"
 
+
+const todoListInfo = [
+  {id: 1, tasks: 'Work in the field', completed: false},
+  {id: 2, tasks: 'TK prep', completed: false},
+  {id: 3, tasks: 'Finish Day 1 challenge', completed: false}
+];
+
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      task: '',
-      id: Date.now(),
-      completed: false
+      tasksArray: todoListInfo
     }
   }
 
   inputChangeHandler = event => {
-    this.setState({ task: event.target.task });
-    console.log(this.state.task);
+    // this.setState({ task: event.target.task });
+    console.log('Typing...');
   };
 
 
@@ -23,11 +28,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList 
-          inputChangeHandler={this.inputChangeHandler}
-          task={this.task}
-          completed={this.completed}
-        />
+        <TodoList tasksArray={this.state.tasksArray} inputChangeHandler={this.inputChangeHandler} />
       </div>
     );
   }
