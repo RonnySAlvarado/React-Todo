@@ -7,7 +7,7 @@ import Todo from './Todo';
 function TodoList (props) {
     return (
         <div>
-            {props.tasksArray.map((eachTask) => {return <Todo eachTask={eachTask} />})}
+            {props.tasksArray.map((eachTask, index) => {return <Todo onClick={()=> props.clickHandler(index)} eachTask={eachTask}/>})}
             <TodoForm inputChangeHandler={props.inputChangeHandler} submitHandler={props.submitHandler} tasksArray={props.tasksArray} tasks={props.tasks} />
         </div>
     );

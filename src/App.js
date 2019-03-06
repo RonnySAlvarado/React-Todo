@@ -13,7 +13,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       tasksArray: todoListInfo,
-      tasks: ''
+      tasks: '',
+      // completed: false
     }
   }
 
@@ -30,6 +31,11 @@ class App extends React.Component {
     };
     this.setState({ tasksArray: [...this.state.tasksArray, newTask], tasks: ''});
   }
+
+  clickHandler = (event, index) => {
+    this.setState ({ })
+    console.log(event.target);
+  }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -38,7 +44,14 @@ class App extends React.Component {
     return (
       <div>
         <h1>My awesome To-do List!</h1>
-        <TodoList tasks={this.state.tasks} tasksArray={this.state.tasksArray} inputChangeHandler={this.inputChangeHandler} submitHandler={this.submitHandler} />
+        <TodoList 
+          tasks={this.state.tasks} 
+          completed={this.state.completed}
+          tasksArray={this.state.tasksArray} 
+          inputChangeHandler={this.inputChangeHandler} 
+          submitHandler={this.submitHandler} 
+          clickHandler={this.clickHandler}
+        />
       </div>
     );
   }
