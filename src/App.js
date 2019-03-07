@@ -37,7 +37,8 @@ class App extends React.Component {
         return {...task, completed: !task.completed};
       }
       else return task;
-    })})
+    })});
+    console.log(this.state.tasksArray);
   };
 
   // you will need a place to store your state in this component.
