@@ -8,7 +8,7 @@ function TodoList (props) {
     return (
         <div>
             {props.tasksArray.map((eachTask, index) => {return <Todo index={index} clickHandler={props.clickHandler} eachTask={eachTask}/>})}
-            <TodoForm inputChangeHandler={props.inputChangeHandler} submitHandler={props.submitHandler} tasksArray={props.tasksArray} tasks={props.tasks} />
+            <TodoForm inputChangeHandler={props.inputChangeHandler} submitHandler={props.submitHandler} clearHandler={props.clearHandler} tasksArray={props.tasksArray} tasks={props.tasks} />
         </div>
     );
 };

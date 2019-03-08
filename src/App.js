@@ -42,6 +42,15 @@ class App extends React.Component {
     console.log(this.state.tasksArray);
   };
 
+  clearHandler = event => {
+    event.preventDefault();
+    this.setState ({  tasksArray: this.state.tasksArray.filter(function (task) {
+      if (task.completed === false) {
+          return task;
+      }
+    })});
+  }
+
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -57,6 +66,7 @@ class App extends React.Component {
           inputChangeHandler={this.inputChangeHandler} 
           submitHandler={this.submitHandler} 
           clickHandler={this.clickHandler}
+          clearHandler={this.clearHandler}
         />
       </div>
     );
