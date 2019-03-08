@@ -39,7 +39,7 @@ class App extends React.Component {
       }
       else return task;
     })});
-    console.log(this.state.tasksArray);
+    // console.log(this.state.tasksArray);
   };
 
   clearHandler = event => {
@@ -55,9 +55,9 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
-    console.log(this.state.tasks);
+    // console.log(this.state.tasks);
     return (
-      <div>
+      <div className="container">
         <h1>My awesome To-do List!</h1>
         <TodoList 
           tasks={this.state.tasks} 
