@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from "./components/TodoComponents/TodoList"
+import Search from "./components/TodoComponents/Search"
 import '../src/components/TodoComponents/Todo.css';
 
 
@@ -15,12 +16,26 @@ class App extends React.Component {
     this.state = {
       tasksArray: todoListInfo,
       tasks: '',
+      search: '',
     }
   }
 
   inputChangeHandler = event => {
     this.setState( {tasks: event.target.value} );
   };
+
+  // searchHandler = event => {
+  //   this.setState({ 
+  //     search: event.target.value,
+  //     tasksArray: this.state.tasksArray.filter( task => {
+  //       if (task.tasks.toLowerCase().indexOf(this.state.search)) {
+  //         return task;
+  //       }
+  //       else return null;
+  //     })
+  //   })
+  // }
+
 
   submitHandler = event => {
     event.preventDefault();
@@ -59,6 +74,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1>My awesome To-do List!</h1>
+        <Search search={this.state.search} searchHandler={this.searchHandler}/>
         <TodoList 
           tasks={this.state.tasks} 
           completed={this.state.completed}
@@ -67,6 +83,7 @@ class App extends React.Component {
           submitHandler={this.submitHandler} 
           clickHandler={this.clickHandler}
           clearHandler={this.clearHandler}
+          search={this.state.search}
         />
       </div>
     );
