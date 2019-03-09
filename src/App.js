@@ -63,8 +63,8 @@ class App extends React.Component {
     });
     return (
       <div className="container">
-        <h1>React Todos</h1>
-        <input type="text" placeholder="search" onChange={this.inputChangeHandler} value={this.state.search} name="search"></input>
+        <h1>Tasks</h1>
+        <input className="searchBar" type="text" placeholder="search" onChange={this.inputChangeHandler} value={this.state.search} name="search"></input>
         <TodoList 
           tasks={this.state.tasks} 
           completed={this.state.completed}
