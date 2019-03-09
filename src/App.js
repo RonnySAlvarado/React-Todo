@@ -1,13 +1,12 @@
 import React from 'react';
 import TodoList from "./components/TodoComponents/TodoList"
-import Search from "./components/TodoComponents/Search"
 import '../src/components/TodoComponents/Todo.css';
 
 
 const todoListInfo = [
   {id: Date.now(), tasks: 'Work in the field', completed: false},
-  {id: Date.now(), tasks: 'TK prep', completed: false},
-  {id: Date.now(), tasks: 'Finish Day 1 challenge', completed: false}
+  {id: Date.now(), tasks: 'Work in the office', completed: false},
+  {id: Date.now(), tasks: 'Work on projects', completed: false}
 ];
 
 class App extends React.Component {
@@ -21,21 +20,8 @@ class App extends React.Component {
   }
 
   inputChangeHandler = event => {
-    this.setState( {tasks: event.target.value} );
+    this.setState( {[event.target.name]: event.target.value} );
   };
-
-  // searchHandler = event => {
-  //   this.setState({ 
-  //     search: event.target.value,
-  //     tasksArray: this.state.tasksArray.filter( task => {
-  //       if (task.tasks.toLowerCase().indexOf(this.state.search)) {
-  //         return task;
-  //       }
-  //       else return null;
-  //     })
-  //   })
-  // }
-
 
   submitHandler = event => {
     event.preventDefault();
@@ -63,6 +49,7 @@ class App extends React.Component {
       if (task.completed === false) {
           return task;
       }
+      else return null;
     })});
   }
 
@@ -71,14 +58,18 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     // console.log(this.state.tasks);
+    let filteredArray = this.state.tasksArray.filter((filteredTask) => {
+      return filteredTask.tasks.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+    });
     return (
       <div className="container">
-        <h1>My awesome To-do List!</h1>
-        <Search search={this.state.search} searchHandler={this.searchHandler}/>
+        <h1>React Todos</h1>
+        <input type="text" placeholder="search" onChange={this.inputChangeHandler} value={this.state.search} name="search"></input>
         <TodoList 
           tasks={this.state.tasks} 
           completed={this.state.completed}
           tasksArray={this.state.tasksArray} 
+          filteredArray={filteredArray}
           inputChangeHandler={this.inputChangeHandler} 
           submitHandler={this.submitHandler} 
           clickHandler={this.clickHandler}
