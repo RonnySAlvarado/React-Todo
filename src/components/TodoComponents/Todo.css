@@ -1,0 +1,104 @@
+.container {
+    margin: 0 auto;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    width: 1024px;
+    height: 100vh;
+    background-image: linear-gradient(to right, #9DCBAE , #FBE3A7);
+}
+
+.container h1 {
+    font-size: 60px;
+    color: teal;
+}
+
+.container .searchBar {
+    width: 350px;
+    height: 40px;
+    background-color: #83BA93;
+    border-radius: 10px;
+    font-size: 24px;
+}
+
+.container .searchBar::placeholder {
+    color: white;
+}
+
+.task-style {
+    width: 300px;
+    border: 1px solid #9ECCAE;
+    background-color: #9ECCAE;
+    color: black;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+}
+
+.completed {
+    text-decoration: line-through;
+    background-color: #d17d7c;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    width: 350px;
+    height: 40px;
+    background-color: #83BA93;
+    border-radius: 10px;
+    font-size: 24px;
+}
+
+input::placeholder {
+    color: white;
+}
+
+form button {
+    margin: 5px;
+}
+
+.addClearContainer {
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid red; */
+    width: 100%;
+}
+
+.add {
+    background-color: lightgreen;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    text-decoration: none;
+    cursor: pointer;
+    width: 49%;
+}
+
+.add:hover {
+    background-color: green;
+}
+
+.clear {
+    background-color: lightcoral;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    text-decoration: none;
+    cursor: pointer;
+    width: 49%;
+}
+.clear:hover {
+    background-color: red;
+}
